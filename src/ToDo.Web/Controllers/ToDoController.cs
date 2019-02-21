@@ -25,7 +25,7 @@ namespace ToDo.Web.Controllers
         {
             return View();
         }
-
+        //[Bind("Title, Description")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(ToDoItem item)
@@ -35,7 +35,7 @@ namespace ToDo.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     _repository.Add<ToDoItem>(item);
-                    return RedirectToAction(nameof(Index));
+                    return  RedirectToAction(nameof(Index));
                 }
             }
             catch(DbUpdateException ex)

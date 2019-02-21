@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using ToDo.Core.Entities;
 
 namespace ToDo.Infrastructure.Data
 {
-   public class AppDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-        //public DbSet<ToDoItem> ToDoItems { get; set; }
+
+        public DbSet<ToDoItem> ToDoItems { get; set; }
     }
 }
