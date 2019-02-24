@@ -124,7 +124,7 @@ namespace EmployeeManagementSystem.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,Designation,DepartmentId,Salary,DateOfBirth,Email,PhoneNumber,ShortCode,Id,ImageUrl, Gender")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,Designation,DepartmentId,Salary,DateOfBirth,Email,PhoneNumber,ShortCode,Id, Gender")] Employee employee)
         {
             if (id != employee.Id)
             {
@@ -135,9 +135,9 @@ namespace EmployeeManagementSystem.Controllers
             {
                 try
                 {                    
-                    var webRootPath = _appEnvironment.WebRootPath;
-                    var files = HttpContext.Request.Form.Files;
-                    employee.ImageUrl = ImageUpload(webRootPath, files);
+                    //var webRootPath = _appEnvironment.WebRootPath;
+                    //var files = HttpContext.Request.Form.Files;
+                    //employee.ImageUrl = ImageUpload(webRootPath, files);
 
                     _context.Update(employee);
                     await _context.SaveChangesAsync();

@@ -1,4 +1,6 @@
-﻿using EmployeeManagementSystem.Models.DbContexts;
+﻿using EmployeeManagementSystem.Interface;
+using EmployeeManagementSystem.Models.DbContexts;
+using EmployeeManagementSystem.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -30,7 +32,7 @@ namespace EmployeeManagementSystem
 
             services.AddDbContext<EmployeeDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("EmployeeDbConnection")));
-
+            services.AddScoped<IRepository, Repository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
